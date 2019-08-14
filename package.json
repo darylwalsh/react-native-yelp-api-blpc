@@ -1,0 +1,129 @@
+{
+  "private": true,
+  "version": "0.1.1",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "commit": "git-cz",
+    "lint": "eslint .",
+    "styleguide:build": "...",
+    "prettier:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,mdx}'",
+    "validate": "run-s test lint prettier:check",
+    "prerelease": "git-authors-cli && git add .",
+    "release": "standard-version",
+    "postrelease": "run-s release:*",
+    "release:tags": "git push --follow-tags origin master",
+    "release:github": "conventional-github-releaser -p angular",
+    "ci:validate": "rm -rf node_modules && npm ci && npm run validate",
+    "prepublishOnly": "npm run ci:validate && npm run build",
+    "start:cli": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "expo": "^34.0.1",
+    "react": "16.8.3",
+    "react-dom": "^16.8.6",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
+    "react-native-dotenv": "^0.2.0",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-navigation": "^3.11.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/runtime": "^7.5.5",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@types/expo__vector-icons": "^9.0.1",
+    "@types/jest": "^24.0.17",
+    "@types/react": "^16.9.1",
+    "@types/react-native": "^0.57.65",
+    "@types/react-native-dotenv": "^0.2.0",
+    "@types/react-navigation": "^3.0.8",
+    "@types/react-test-renderer": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-expo": "^6.0.0",
+    "cache-loader": "^4.1.0",
+    "commitizen": "^4.0.3",
+    "conventional-github-releaser": "^3.1.3",
+    "cz-adapter-eslint": "^0.3.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-typescript": "^0.14.0",
+    "git-authors-cli": "^1.0.18",
+    "husky": "^3.0.3",
+    "jest-expo": "^34.0.0",
+    "lint-staged": "^9.2.1",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "node-fetch": "^2.6.0",
+    "now": "^16.1.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-art": "^16.9.0",
+    "react-native-elements": "^1.1.0",
+    "react-native-typescript-transformer": "^1.2.13",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-web": "^0.11.6",
+    "react-test-renderer": "^16.9.0",
+    "scaffdog": "^0.1.2",
+    "standard-version": "^7.0.0",
+    "thread-loader": "^2.1.3",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.4.5"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.mdx": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.{js,jsx,css,less,scss,ts,tsx,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "contributors": [
+    "Daryl <daryl@blpc.us>"
+  ]
+}

@@ -1,0 +1,8 @@
+node_modules
+@types
+coverage/
+build/
+/node_modules/*
+.docz/
+/.vscode
+/.git
