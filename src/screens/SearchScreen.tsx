@@ -1,37 +1,41 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
-import yelp from '../api/yelp'
+import ResultsList from '../components/ResultsList'
 import SearchBar from '../components/SearchBar'
+import useResults from '../hooks/useResults'
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('')
-  const [results, setResults] = useState([])
-  const [errorMessage, setErrorMessage] = useState('')
+  const [searchApi, results, errorMessage] = useResults()
 
-  const searchApi = async () => {
-    try {
-      const response = await yelp.get('/search', {
-        params: {
-          limit: 50,
-          term,
-          location: 'san jose',
-        },
-      })
-      setResults(response.data.businesses)
-    } catch (err) {
-      console.log(err)
-      setErrorMessage('Something went wrong')
-    }
+  const filterResultByPrice = (price: string): any => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore: unavailable type definition
+    return results.filter(result => {
+      return result.price === price
+    })
   }
-
   return (
-    <View>
-      <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
-      <Text>SearchScreen</Text>
+    <>
+      <SearchBar
+        term={term}
+        onTermChange={setTerm}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore: unavailable type definition
+        onTermSubmit={() => searchApi(term)}
+      />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <Text>We have found {results.length} results</Text>
-    </View>
+      <ScrollView>
+        <ResultsList
+          title="Cost Effective"
+          results={filterResultByPrice('$')}
+        />
+        <ResultsList title="Bit Pricier" results={filterResultByPrice('$$')} />
+        <ResultsList title="Top Shelf" results={filterResultByPrice('$$$')} />
+      </ScrollView>
+    </>
   )
 }
 

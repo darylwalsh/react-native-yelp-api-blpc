@@ -23,6 +23,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
+    'semi': 'off',
+    '@typescript-eslint/semi': ['error','never'],
     '@typescript-eslint/no-duplicate-imports': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
@@ -35,7 +37,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts', '.tsx','.jsx'],
+        extensions: ['.js', '.ts', '.tsx', '.jsx'],
       },
     },
   },
