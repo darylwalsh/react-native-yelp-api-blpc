@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c4365ad7-c3f9-4c96-957f-3e9e9ff158a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/components/ResultsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/ResultsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/screens/ResultsShowScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/ResultsShowScreen.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

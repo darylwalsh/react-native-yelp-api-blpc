@@ -40,7 +40,9 @@ const ResultsList = ({
     // @ts-ignore: unavailable type definition
     navigation.navigate('ResultsShow')
   }
-
+  if (!results.length) {
+    return null
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
