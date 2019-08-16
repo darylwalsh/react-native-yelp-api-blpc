@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/darylwalsh/react-native-yelp-api-blpc/compare/v0.1.5...v0.1.6) (2019-08-16)
+
+
+### Features
+
+* **mvp_complete:** completed mvp version ([764218b](https://github.com/darylwalsh/react-native-yelp-api-blpc/commit/764218b))
+
 ### [0.1.5](https://github.com/darylwalsh/react-native-yelp-api-blpc/compare/v0.1.4...v0.1.5) (2019-08-16)
 
 
