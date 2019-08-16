@@ -35,14 +35,17 @@ const ResultsList = ({
   screenProps?: NavigationScreenProps
 }): NavigationStackScreenOptions | void | JSX.Element | any => {
   // Navigate to details view
-  const buttonPress = (): NavigationStackScreenOptions | void | any => {
+  const buttonPress = (
+    itemId: string
+  ): NavigationStackScreenOptions | void | any => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore: unavailable type definition
-    navigation.navigate('ResultsShow')
+    navigation.navigate('ResultsShow', { id: itemId })
   }
   if (!results.length) {
     return null
   }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -54,7 +57,11 @@ const ResultsList = ({
         keyExtractor={(result: any) => result.id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={buttonPress}>
+            <TouchableOpacity
+              onPress={() => {
+                buttonPress(item.id)
+              }}
+            >
               <ResultsDetail result={item} />
             </TouchableOpacity>
           )

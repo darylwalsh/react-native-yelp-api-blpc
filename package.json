@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "commit": "git-cz",
+    "commit": "git-cz -S",
     "lint": "eslint .",
     "styleguide:build": "...",
     "prettier:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,mdx}'",

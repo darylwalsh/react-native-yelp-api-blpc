@@ -21,14 +21,19 @@ type Result = ResultsInterface | null
 const ResultsShowScreen = ({ navigation }: Props) => {
   const [result, setResult] = useState<Result>()
   const id = navigation.getParam('id')
+
   const getResult = async (id: string) => {
-    const response = await yelp.get(`/${id}`)
-    setResult(response.data)
+    try {
+      const response = await yelp.get(`/${id}`)
+      setResult(response.data)
+    } catch (e) {
+      console.log(e)
+    }
   }
+
   useEffect(() => {
     getResult(id)
   }, [])
-
   if (!result) {
     return null
   }
